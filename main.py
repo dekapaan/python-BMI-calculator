@@ -59,6 +59,10 @@ def bmi_calc():
             ideal_field.config(state='normal')
             ideal_field.insert(0, result)
             ideal_field.config(state='readonly')
+            result_bmi = int(weight_entry.get()) / ((int(height_entry.get()) / 100) ** 2)
+            bmi_field.config(state='normal')
+            bmi_field.insert(0, round(result_bmi, 1))
+            bmi_field.config(state='readonly')
         elif variable.get() == "Female":
             result = ((0.5 * int(weight_entry.get())) / ((int(height_entry.get()) / 100) ** 2)) + (
                         0.03 * int(age_entry.get())) + 11
@@ -66,6 +70,10 @@ def bmi_calc():
             ideal_field.config(state='normal')
             ideal_field.insert(0, result)
             ideal_field.config(state='readonly')
+            result_bmi = int(weight_entry.get()) / ((int(height_entry.get()) / 100) ** 2)
+            bmi_field.config(state='normal')
+            bmi_field.insert(0, round(result_bmi, 1))
+            bmi_field.config(state='readonly')
     except ValueError:
         messagebox.showerror(title=None, message='Gender was not specified or invalid entry was given')
         delete()
