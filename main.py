@@ -76,19 +76,13 @@ def bmi_calc():
             bmi_field.insert(0, round(result_bmi, 1))
             bmi_field.config(state='readonly')
         if result_bmi < 18.5:
-            category.config(state='normal')
-            category.insert('Underweight')
-            category.config(state='readonly')
+            category.config(text='Underweight')
         elif 18.5 <= result_bmi < 25:
             category.config(text='Healthy')
         elif 25 <= result_bmi < 30:
-            category.config(state='normal')
-            category.insert('Overweight')
-            category.config(state='readonly')
+            category.config(text='Overweight')
         elif result_bmi >= 30:
-            category.config(state='normal')
-            category.insert('Obese')
-            category.config(state='readonly')
+            category.config(text='Obese')
 
     except ValueError:
         messagebox.showerror(title=None, message='Gender was not specified or invalid entry was given')
@@ -122,6 +116,7 @@ def delete():
     ideal_field.config(state='readonly')
     weight_entry.focus()
     variable.set(options[0])
+    category.config(text='')
 
 
 category_head = Label(root, text="Category:", bg='#333', fg='white')
